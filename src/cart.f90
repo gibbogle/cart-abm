@@ -255,7 +255,7 @@ if (nc == 3) then
 else
     Q = Tp%CARlevel(nc)*Tump%targetExp(nc)
 endif
-if (Tp%totalStim < activationThreshold) then
+if ((Tp%generation == 1) .and. (Tp%totalStim < activationThreshold)) then
     kill = .false.
     return
 endif

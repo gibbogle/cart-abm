@@ -61,6 +61,8 @@ nTcells = nTcells0
 nTumcells = nTumcells0
 call RNGInitialisation
 call generate_cells
+write(nflog,*) 'Bytes allocated: Tcell,Tumourcell: ', &
+    nTcellsmax*sizeof(Tcell(1)),1.5*nTumcells0*sizeof(Tumourcell(1))
 
 end subroutine
 

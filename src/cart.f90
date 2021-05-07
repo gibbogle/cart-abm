@@ -436,7 +436,7 @@ do istep = 1,nSteps
         write(*,*) 'Inconsistent tumour cell counts: ',nTumcells, (nTemp + nTumDivided)
         stop
     endif
-    write(*,'(a,4i8)') 'step,nTcells,nTumcells,killed: ',istep,nTalive,nTumcells,totalKilled
+    write(*,'(a,4i10)') 'step,nTcells,nTumcells,killed: ',istep,nTalive,nTumcells,totalKilled
     if (nTalive == 0) then
         write(*,*) 'All T cells are dead'
         stop

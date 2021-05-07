@@ -47,6 +47,7 @@ end subroutine
 !-----------------------------------------------------------------------------------------
 subroutine init
 logical :: ok
+integer :: sz_Tcell,sz_Tumcell
 
 open(nfin,file=inputfile,status='old')
 open(nflog,file=logfile,status='replace')
@@ -61,9 +62,12 @@ nTcells = nTcells0
 nTumcells = nTumcells0
 call RNGInitialisation
 call generate_cells
-write(nflog,*) 'Bytes allocated: Tcell,Tumourcell: ', &
-    nTcellsmax*sizeof(Tcell(1)),1.5*nTumcells0*sizeof(Tumourcell(1))
-
+sz_Tcell = sizeof(Tcell(1))
+sz_Tumcell = sizeof(Tumourcell(1))
+write(nflog,'(a,2i10)') 'nTcellsmax, 1.5*nTumcells0: ',nTcellsmax, int(1.5*nTumcells0)
+write(nflog,'(a,2i6)') 'sizeof Tcell_type, Tumourcell_type: ',sz_Tcell,sz_Tumcell
+write(nflog,'(a,2f8.3)') 'MBytes allocated: Tcell,Tumourcell: ', &
+    (nTcellsmax/1000000.)*sz_Tcell,(1.5*nTumcells0*sz_Tumcell)/1000000.
 end subroutine
 
 !----------------------------------------------------------------------------------------- 

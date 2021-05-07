@@ -11,6 +11,8 @@ subroutine readparameters
 integer :: iuse_kill_prob
 
 read(nfin,*) concept
+read(nfin,*) nDays
+read(nfin,*) nCars
 read(nfin,*) nTcells0
 read(nfin,*) nTumPerTcell
 read(nfin,*) seed(1)

@@ -1,0 +1,13 @@
+*.pro
+*.user
+*/*.pro
+*/*.user
+build/**/*
+Docs/
+Docs/**/*
+execution/
+execution/**/*
+cart_GUI-build/**/*
+/GUI/cart_GUI.pro.user
+/GUI/cart_GUI.pro
+/backup-14-08-15

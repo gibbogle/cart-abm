@@ -3,7 +3,7 @@ program main
 use cart
 implicit none
 integer :: i, nlen, cnt, status
-character*(256) :: b, c, progname
+character*(256) :: b, c, progname, str
 
 call get_command (b, nlen, status)
 if (status .ne. 0) then
@@ -32,6 +32,7 @@ endif
 !    write(*,*) '  simulate colony if colony_days > 0'
 !    stop
 !endif
+Mnodes = 1
 do i = 1,cnt
     call get_command_argument (i, c, nlen, status)
     if (status .ne. 0) then
@@ -42,10 +43,15 @@ do i = 1,cnt
         inputfile = c(1:nlen)																! --> infile
         write(*,*) 'Input file: ',trim(inputfile)
     endif
+    if (i == 2) then
+        str = c(1:nlen)
+        read(str,*) Mnodes
+        write(*,*) 'Mnodes: ',Mnodes
+    endif
 enddo
 
 !nDays = 25
-Mnodes = 2
+!Mnodes = 2
 !nCARs = 1
 !inputfile = 'cart.inp'
 logfile = 'cart.log'

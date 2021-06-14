@@ -76,7 +76,7 @@ character*(2048) :: logfile
 character*(2048) :: logmsg
 
 integer :: kcell_now
-integer :: kdbug = 440
+integer :: kdbug = -440
 
 contains
 

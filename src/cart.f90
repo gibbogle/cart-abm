@@ -393,8 +393,8 @@ do istep = 1,nSteps
                 endif
             endif
             Tp%totalStim = (1 - stimDecayFactor)*Tp%totalStim
-    if (kcell == kdbug) write(nflog,'(a,2i4,2f8.3)') 'istep,generation,totalStim,exhaustion: ',istep, &
-        Tp%generation,Tp%totalStim,Tp%exhaustion
+            if (kcell == kdbug) write(nflog,'(a,2i4,2f8.3)') 'istep,generation,totalStim,exhaustion: ',istep, &
+                Tp%generation,Tp%totalStim,Tp%exhaustion
             if (Tp%totalStim > divideThreshold) then
                 nTemp = nTemp + 1
                 nTalive = nTalive + 1
@@ -425,7 +425,7 @@ do istep = 1,nSteps
 !        write(*,'(a,4i8)') 'ktumour,nTumcells,nkilled: ',ktumour,nTumcells,nkilled
         nTumcells = ktumour
     endif
-    ! Need to add tumour cell division
+    ! Tumour cell division
     nTemp = nTumCells
     nTumDivided = 0
     do kcell = 1,nTemp   

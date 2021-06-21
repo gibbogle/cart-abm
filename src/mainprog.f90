@@ -2,7 +2,7 @@
 program main
 use cart
 implicit none
-integer :: i, nlen, cnt, status
+integer :: i, nlen, cnt, status, ncpu
 character*(256) :: b, c, progname, str
 
 call get_command (b, nlen, status)
@@ -32,7 +32,7 @@ endif
 !    write(*,*) '  simulate colony if colony_days > 0'
 !    stop
 !endif
-Mnodes = 1
+ncpu = 0
 do i = 1,cnt
     call get_command_argument (i, c, nlen, status)
     if (status .ne. 0) then
@@ -45,8 +45,8 @@ do i = 1,cnt
     endif
     if (i == 2) then
         str = c(1:nlen)
-        read(str,*) Mnodes
-        write(*,*) 'Mnodes: ',Mnodes
+        read(str,*) ncpu
+        write(*,*) 'mainprog ncpu: ',ncpu
     endif
 enddo
 
@@ -55,7 +55,7 @@ enddo
 !nCARs = 1
 !inputfile = 'cart.inp'
 logfile = 'cart.log'
-call init
+call init(ncpu)
 call runner
 
 end program

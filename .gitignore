@@ -1,13 +1,9 @@
-*.pro
 *.user
-*/*.pro
 */*.user
+build/
 build/**/*
-Docs/
-Docs/**/*
 execution/
 execution/**/*
-cart_GUI-build/**/*
-/GUI/cart_GUI.pro.user
-/GUI/cart_GUI.pro
-/backup-14-08-15
+ABM_GUI-build/
+ABM_GUI-build/**/*
+GUI/ABM_GUI.pro.user
